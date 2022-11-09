@@ -18,6 +18,7 @@ function FormFilter() {
   // //estados globales
   //stado que controlado el button Todos
   let stateCountry = useSelector((state) => state.stateCountry);
+
   //estados locales
   //stado que controla el radio button de ordenamientos
   const [stateRadio, setStateRadio] = useState("All");
