@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-
 import CountryCard from "../countryCard";
 import FormFilter from "../formFilter";
 import Pagination from "../pagination";
 import giftNotCountries from "../../assets/animaniacs-warner-bros.gif";
+
 
 import "./index.css";
 
@@ -12,6 +12,7 @@ function Home() {
   //estados globales
   let countries = useSelector((state) => state.countries);
   let statePage = useSelector((state) => state.statePage);
+  const loadingCountries = useSelector((state) => state.loadingCountries);
   //acciones
   let postsPerPage = 9;
   const lastPostIndex = statePage * postsPerPage; // 9 //18
@@ -37,6 +38,16 @@ function Home() {
                   translation={country.translation}
                 />
               ))}
+          </div>
+        ) : loadingCountries ? (
+          <div className="notExistedCountriesOrActivities">
+            <h3>No activities or countries available</h3>
+            <h3>CARGANDO PAISES</h3>
+            <img
+              className="nohaynada"
+              src={giftNotCountries}
+              alt="not countries"
+            />
           </div>
         ) : (
           <div className="notExistedCountriesOrActivities">

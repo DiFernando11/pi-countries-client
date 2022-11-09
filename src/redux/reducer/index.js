@@ -18,7 +18,6 @@ import {
   IS_FAVORITE_ACTIVITY,
   // GET_ALL_ACTIVITIES_BY_COUNTRIES,
   // PRUEBA_ACTIVITY,
-
 } from "../actions";
 import {
   filterByActividadCountries,
@@ -41,6 +40,7 @@ const initialState = {
   statePage: 1,
   stateRefreshUpdate: false,
   activitiesAll: [],
+  loadingCountries: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -156,6 +156,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         stateRefreshUpdate: !state.stateRefreshUpdate,
+      };
+    }
+    case LOADING_COUNTRIES: {
+      return {
+        ...state,
+        loadingCountries: true,
       };
     }
 

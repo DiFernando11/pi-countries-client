@@ -21,6 +21,7 @@ export const DELETE_FAVORITE_ACTIVITY = "DELETE_FAVORITE_ACTIVITY";
 export const UPDATE_CARD_FAVORITE = "UPDATE_CARD_FAVORITE";
 export const STATE_PAGE = "STATE_PAGE";
 export const REFRESH_STATE = "REFRESH_STATE ";
+export const LOADING_COUNTRIES = "LOADING_COUNTRIES";
 // export const GET_ALL_ACTIVITIES_BY_COUNTRIES = "ALL_ACTIVITIES_BY_COUNTRIES";
 // export const PRUEBA_ACTIVITY = "PRUEBA_ACTIVITY";
 
@@ -214,6 +215,12 @@ export const setRefreshUpdate = () => {
     type: REFRESH_STATE,
   };
 };
+export const setLoadingCountries = () => {
+  return {
+    type: LOADING_COUNTRIES,
+  };
+};
+
 
 // export const allActivitiesByCountries = () => {
 //   return async (dispatch) => {
