@@ -6,6 +6,7 @@ import {
   filterCountriesByActivity,
   // pruebaActivities,
   searchCountriesByActivities,
+  setLoadingCountries,
   setStateCountry,
   sortByNameCountries,
   sortByPopulation,
@@ -17,8 +18,6 @@ function FormFilter() {
   // //estados globales
   //stado que controlado el button Todos
   let stateCountry = useSelector((state) => state.stateCountry);
-  let statePages = useSelector((state) => state.statePage);
-  console.log(statePages);
   //estados locales
   //stado que controla el radio button de ordenamientos
   const [stateRadio, setStateRadio] = useState("All");
@@ -43,6 +42,7 @@ function FormFilter() {
   const handleValueFilterByActivity = (e, idCheckbox, activity) => {
     const isChecked = document.getElementById(idCheckbox).checked;
     if (isChecked) {
+      dispatch(setLoadingCountries());
       setCheckboxActivity((prev) => [...prev, e.target.value]);
       dispatch(
         filterCountriesByActivity(
@@ -86,6 +86,7 @@ function FormFilter() {
   const handleValueChange = (e, idCheckbox, continent) => {
     var isChecked = document.getElementById(idCheckbox).checked;
     if (isChecked) {
+      dispatch(setLoadingCountries());
       setCheckBoxContinent((prev) => [...prev, e.target.value]);
       if (!checkBoxActivity.length) {
         dispatch(filterByContinent([...checkBoxContinent, continent]));

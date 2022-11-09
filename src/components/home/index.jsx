@@ -4,7 +4,6 @@ import FormFilter from "../formFilter";
 import Pagination from "../pagination";
 import giftNotCountries from "../../assets/animaniacs-warner-bros.gif";
 
-
 import "./index.css";
 
 function Home() {
@@ -13,6 +12,7 @@ function Home() {
   let countries = useSelector((state) => state.countries);
   let statePage = useSelector((state) => state.statePage);
   const loadingCountries = useSelector((state) => state.loadingCountries);
+  console.log(loadingCountries);
   //acciones
   let postsPerPage = 9;
   const lastPostIndex = statePage * postsPerPage; // 9 //18
@@ -42,7 +42,6 @@ function Home() {
         ) : loadingCountries ? (
           <div className="notExistedCountriesOrActivities">
             <h3>No activities or countries available</h3>
-            <h3>CARGANDO PAISES</h3>
             <img
               className="nohaynada"
               src={giftNotCountries}
@@ -53,7 +52,6 @@ function Home() {
           <div className="notExistedCountriesOrActivities">
             <h3>LOADING COUNTRIES</h3>
             <img
-              width={50}
               src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"
             ></img>
           </div>
