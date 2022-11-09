@@ -40,12 +40,11 @@ function Home() {
           </div>
         ) : (
           <div className="notExistedCountriesOrActivities">
-            <h3>No activities or countries available</h3>
+            <h3>LOADING COUNTRIES</h3>
             <img
-              className="nohaynada"
-              src={giftNotCountries}
-              alt="not countries"
-            />
+              width={50}
+              src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"
+            ></img>
           </div>
         )}
       </div>
