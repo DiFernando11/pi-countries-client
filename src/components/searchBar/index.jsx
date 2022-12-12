@@ -15,7 +15,6 @@ function SearchBar() {
   if (country.length === 0 && stateCountry === "All") {
     dispatch(getAllCountries(0));
   }
-
   const handleSearchCountry = (e) => {
     e.preventDefault();
     setCountries(e.target.value);
