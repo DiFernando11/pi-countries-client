@@ -28,7 +28,7 @@ export const LOADING_COUNTRIES = "LOADING_COUNTRIES";
 export const getAllCountries = () => {
   return async (dispatch) => {
     const response = await axios.get(
-      `https://server-countries.herokuapp.com/countries`
+      `https://api-countries-production-aace.up.railway.app/countries`
     );
     return dispatch({
       type: GET_ALL_COUNTRIES,
@@ -40,7 +40,7 @@ export const getAllCountries = () => {
 export const getCountryDetail = (id) => {
   return async (dispatch) => {
     const response = await axios.get(
-      `https://server-countries.herokuapp.com/countries/${id}`
+      `https://api-countries-production-aace.up.railway.app/countries/${id}`
     );
     return dispatch({
       type: GET_COUNTRY_DETAIL,
@@ -52,7 +52,7 @@ export const getCountryDetail = (id) => {
 export function getActivities(id) {
   return async function (dispatch) {
     const response = await axios.get(
-      `https://server-countries.herokuapp.com/activity/${id}`
+      `https://api-countries-production-aace.up.railway.app/activity/${id}`
     );
     return dispatch({
       type: GET_ALL_ACTIVITIES,
@@ -64,7 +64,7 @@ export function getActivities(id) {
 export const createPostActivity = (payload) => {
   return async function (dispatch) {
     const response = await axios.post(
-      "https://server-countries.herokuapp.com/activity",
+      "https://api-countries-production-aace.up.railway.app/activity",
       payload
     );
     return dispatch({
@@ -77,7 +77,7 @@ export const createPostActivity = (payload) => {
 export function deleteActivity(id, countryId) {
   return async function (dispatch) {
     const response = await axios.delete(
-      `https://server-countries.herokuapp.com/activity/${id}`,
+      `https://api-countries-production-aace.up.railway.app/activity/${id}`,
       {
         data: { countryId },
       }
@@ -91,7 +91,7 @@ export function deleteActivity(id, countryId) {
 export const updateActivity = (id, payload) => {
   return async (dispatch) => {
     const response = await axios.put(
-      `https://server-countries.herokuapp.com/activity/${id}`,
+      `https://api-countries-production-aace.up.railway.app/activity/${id}`,
       payload
     );
     return dispatch({
@@ -104,7 +104,7 @@ export const updateActivity = (id, payload) => {
 export const favoriteActivities = () => {
   return async (dispatch) => {
     const response = await axios.get(
-      "https://server-countries.herokuapp.com/favorites"
+      "https://api-countries-production-aace.up.railway.app/favorites"
     );
     return dispatch({
       type: FAVORITE_ACTIVITIES,
@@ -115,7 +115,7 @@ export const favoriteActivities = () => {
 export const createFavoriteActivities = (payload) => {
   return async function (dispatch) {
     const response = await axios.post(
-      "https://server-countries.herokuapp.com/favorites",
+      "https://api-countries-production-aace.up.railway.app/favorites",
       payload
     );
     return dispatch({
@@ -128,7 +128,7 @@ export const createFavoriteActivities = (payload) => {
 export const deleteFavority = (id) => {
   return async function (dispatch) {
     await axios.delete(
-      `https://server-countries.herokuapp.com/favorites/activity/${id}`
+      `https://api-countries-production-aace.up.railway.app/favorites/activity/${id}`
     );
     return dispatch({
       type: DELETE_FAVORITE_ACTIVITY,
@@ -139,7 +139,7 @@ export const deleteFavority = (id) => {
 export const updateCardFavorite = (id, payload) => {
   return async (dispatch) => {
     await axios.put(
-      `https://server-countries.herokuapp.com/favorites/${id}`,
+      `https://api-countries-production-aace.up.railway.app/favorites/${id}`,
       payload
     );
     return dispatch({
@@ -151,7 +151,7 @@ export const updateCardFavorite = (id, payload) => {
 export const isFavoriteActivity = (id, idCountry) => {
   return async (dispatch) => {
     const response = await axios.put(
-      `https://server-countries.herokuapp.com/favorites/activity/${id}?country=${idCountry}`
+      `https://api-countries-production-aace.up.railway.app/favorites/activity/${id}?country=${idCountry}`
     );
     return dispatch({
       type: IS_FAVORITE_ACTIVITY,
